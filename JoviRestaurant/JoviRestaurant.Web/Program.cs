@@ -1,7 +1,40 @@
+using JoviRestaurant.Web;
+using JoviRestaurant.Web.Services;
+using JoviRestaurant.Web.Services.IServices;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services.AddHttpClient<IProductService, ProductService>();
+builder.Services.AddHttpClient<ICartService, CartService>();
+StaticDetails.ProductAPIBase = builder.Configuration["ServiceUrls:ProductAPI"];
+StaticDetails.ShoppingCartAPIBase = builder.Configuration["ServiceUrls:ShoppingCartAPI"];
+
+
+builder.Services.AddScoped<IProductService, ProductService>();
+builder.Services.AddScoped<ICartService, CartService>();
+
+
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddAuthentication(options =>
+{
+    options.DefaultScheme = "Cookies";
+    options.DefaultChallengeScheme = "oidc";
+}).AddCookie("Cookies", c => c.ExpireTimeSpan = TimeSpan.FromMinutes(10))
+.AddOpenIdConnect("oidc", options =>
+ {
+     options.Authority = builder.Configuration["ServiceUrls:IdentityAPI"];
+     options.GetClaimsFromUserInfoEndpoint = true;
+     options.ClientId = "jovirestaurant";
+     options.ClientSecret = "secret";
+     options.ResponseType = "code";
+     options.TokenValidationParameters.NameClaimType = "name";
+     options.TokenValidationParameters.RoleClaimType = "role";
+     options.Scope.Add("jovirestaurant");
+     options.SaveTokens = true;
+
+});
 
 var app = builder.Build();
 
@@ -17,6 +50,8 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
+
+app.UseAuthentication();
 
 app.UseAuthorization();
 

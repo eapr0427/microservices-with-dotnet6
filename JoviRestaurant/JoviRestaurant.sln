@@ -5,11 +5,15 @@ VisualStudioVersion = 17.1.32210.238
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FrontEnd", "FrontEnd", "{A0D2333E-7A2C-4DF2-9E9C-D903408D2B04}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JoviRestaurant.Web", "JoviRestaurant.Web\JoviRestaurant.Web.csproj", "{BA5ADF90-B7F3-416D-A7A0-C10B4E0076A6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JoviRestaurant.Web", "JoviRestaurant.Web\JoviRestaurant.Web.csproj", "{BA5ADF90-B7F3-416D-A7A0-C10B4E0076A6}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{E6E1AAB5-D900-4EB7-88C1-3FE600905B7B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JoviRestaurant.Services.ProductAPI", "JoviRestaurant.Services.ProductAPI\JoviRestaurant.Services.ProductAPI.csproj", "{3C16DE26-A44C-4405-ACB1-31E81DD2163E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JoviRestaurant.Services.ProductAPI", "JoviRestaurant.Services.ProductAPI\JoviRestaurant.Services.ProductAPI.csproj", "{3C16DE26-A44C-4405-ACB1-31E81DD2163E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JoviRestaurant.Services.Identity", "JoviRestaurant.Services.Identity\JoviRestaurant.Services.Identity.csproj", "{61E0B77E-81C8-4C0C-831C-10C57E16B991}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JoviRestaurant.Services.ShoppingCartAPI", "JoviRestaurant.Services.ShoppingCartAPI\JoviRestaurant.Services.ShoppingCartAPI.csproj", "{DFA46482-59A1-4CB3-A540-34AC98498D79}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,6 +29,14 @@ Global
 		{3C16DE26-A44C-4405-ACB1-31E81DD2163E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3C16DE26-A44C-4405-ACB1-31E81DD2163E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3C16DE26-A44C-4405-ACB1-31E81DD2163E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{61E0B77E-81C8-4C0C-831C-10C57E16B991}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{61E0B77E-81C8-4C0C-831C-10C57E16B991}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{61E0B77E-81C8-4C0C-831C-10C57E16B991}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{61E0B77E-81C8-4C0C-831C-10C57E16B991}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DFA46482-59A1-4CB3-A540-34AC98498D79}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DFA46482-59A1-4CB3-A540-34AC98498D79}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DFA46482-59A1-4CB3-A540-34AC98498D79}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DFA46482-59A1-4CB3-A540-34AC98498D79}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -32,6 +44,8 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{BA5ADF90-B7F3-416D-A7A0-C10B4E0076A6} = {A0D2333E-7A2C-4DF2-9E9C-D903408D2B04}
 		{3C16DE26-A44C-4405-ACB1-31E81DD2163E} = {E6E1AAB5-D900-4EB7-88C1-3FE600905B7B}
+		{61E0B77E-81C8-4C0C-831C-10C57E16B991} = {E6E1AAB5-D900-4EB7-88C1-3FE600905B7B}
+		{DFA46482-59A1-4CB3-A540-34AC98498D79} = {E6E1AAB5-D900-4EB7-88C1-3FE600905B7B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {58093602-549F-4282-9E92-15FFB3BE18FE}

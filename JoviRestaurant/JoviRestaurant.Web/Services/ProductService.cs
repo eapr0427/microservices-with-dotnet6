@@ -11,7 +11,7 @@ namespace JoviRestaurant.Web.Services
             _httpClientFactory = httpClientFactory;
         }
 
-        public async Task<T> CreateProductAsync<T>(ProductDTO productDto)
+        public async Task<T> CreateProductAsync<T>(ProductDto productDto, string token)
         {
             return await this.SendAsync<T>(new ApiRequest
             {
@@ -19,44 +19,44 @@ namespace JoviRestaurant.Web.Services
                 ApiType = StaticDetails.ApiType.POST,
                 Data = productDto,
                 Url = StaticDetails.ProductAPIBase + "/api/products",
-                AccessToken = ""
+                AccessToken = token
             });
         }
 
-        public async Task<T> DeleteProductAsync<T>(int id)
+        public async Task<T> DeleteProductAsync<T>(int id, string token)
         {
             return await this.SendAsync<T>(new ApiRequest
             {
 
                 ApiType = StaticDetails.ApiType.DELETE,
                 Url = StaticDetails.ProductAPIBase + "/api/products/"+id,
-                AccessToken = ""
+                AccessToken = token
             });
         }
 
-        public async Task<T> GetAllProductsAsync<T>()
+        public async Task<T> GetAllProductsAsync<T>(string token)
         {
             return await this.SendAsync<T>(new ApiRequest
             {
 
                 ApiType = StaticDetails.ApiType.GET,
                 Url = StaticDetails.ProductAPIBase + "/api/products",
-                AccessToken = ""
+                AccessToken = token
             });
         }
 
-        public async Task<T> GetProductByIdAsync<T>(int id)
+        public async Task<T> GetProductByIdAsync<T>(int id, string token)
         {
             return await this.SendAsync<T>(new ApiRequest
             {
 
                 ApiType = StaticDetails.ApiType.GET,
                 Url = StaticDetails.ProductAPIBase + "/api/products/"+id,
-                AccessToken = ""
+                AccessToken = token
             });
         }
 
-        public async Task<T> UpdateProductAsync<T>(ProductDTO productDto)
+        public async Task<T> UpdateProductAsync<T>(ProductDto productDto, string token)
         {
             return await this.SendAsync<T>(new ApiRequest
             {
@@ -64,7 +64,7 @@ namespace JoviRestaurant.Web.Services
                 ApiType = StaticDetails.ApiType.PUT,
                 Data = productDto,
                 Url = StaticDetails.ProductAPIBase + "/api/products",
-                AccessToken = ""
+                AccessToken = token
             });
         }
     }
