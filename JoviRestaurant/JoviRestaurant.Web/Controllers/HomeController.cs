@@ -23,6 +23,9 @@ namespace JoviRestaurant.Web.Controllers
 
         public async Task<IActionResult> Index()
         {
+            //var userId = User.Claims.Where(u => u.Type == "sub")?.FirstOrDefault()?.Value;
+
+
             var products = new List<ProductDto>();
             var response = await _productService.GetAllProductsAsync<ResponseDto>("");
 
@@ -52,11 +55,15 @@ namespace JoviRestaurant.Web.Controllers
         [Authorize]
         public async Task<IActionResult> DetailsPost(ProductDto productDto)
         {
+            //var email = HttpContext.User.Claims.FirstOrDefault(c => c.Type == "sub")?.Value;
+
+            var userId = User.Claims.Where(u => u.Type == "sub")?.FirstOrDefault()?.Value ?? String.Empty;
             var cartDto = new CartDto
             {
                 CartHeader = new CartHeaderDto
                 {
-                    UserId = User.Claims.Where(u => u.Type == "sub")?.FirstOrDefault()?.Value,
+                    CouponCode = String.Empty,
+                    UserId = userId,
                 }
             };
             var cartDetails = new CartDetailsDto()
